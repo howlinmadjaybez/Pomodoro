@@ -1,0 +1,25 @@
+{
+  "name": "Pomodoro Space — трекер часу",
+  "short_name": "Pomodoro",
+  "description": "Pomodoro таймер, задачі та нотатки",
+  "lang": "uk",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#211d2d",
+  "theme_color": "#211d2d",
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
