@@ -1,0 +1,5 @@
+let context;
+export async function unlockAudio(){try{const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return;context ||= new Ctx();if(context.state==="suspended")await context.resume()}catch{}}
+export function playSignal(){try{if(!context)return;[0,.22,.44].forEach((delay,i)=>{const osc=context.createOscillator(),gain=context.createGain();osc.type="sine";osc.frequency.value=660+i*110;gain.gain.setValueAtTime(.0001,context.currentTime+delay);gain.gain.exponentialRampToValueAtTime(.12,context.currentTime+delay+.025);gain.gain.exponentialRampToValueAtTime(.0001,context.currentTime+delay+.22);osc.connect(gain);gain.connect(context.destination);osc.start(context.currentTime+delay);osc.stop(context.currentTime+delay+.24)})}catch{}}
+export async function requestNotifications(){if(!("Notification"in window))return false;try{return await Notification.requestPermission()==="granted"}catch{return false}}
+export function notify(title,body){if("Notification"in window&&Notification.permission==="granted"&&document.visibilityState==="hidden")new Notification(title,{body})}
